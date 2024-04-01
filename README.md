@@ -1,7 +1,7 @@
 # CoderHouse-DE
 ## Proyecto de consumo de APIS e ingesta a Redshift
 
-![API MARVEL](D:\Projects\CoderHouse-DE\images\ultron_marvel.jpg)
+![API MARVEL](https://github.com/RE-Vincent/CoderHouse-DE/blob/main/images/ultron_marvel.jpg)
 
 Para hacer uso de la API debes de registrate en la siguiente url http://developer.marvel.com/ y accederas a todo el contenido de Marvel como los personajes, los comics, las películas, los videojuegos y mucho más.
 Despues de registrarte obtendras una clave pública y una privada que son necesarias para poder realizar las consultas.
