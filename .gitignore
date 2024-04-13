@@ -76,9 +76,11 @@ docs/_build/
 target/
 
 # Jupyter Notebook
+
 .ipynb_checkpoints
 
 test.ipynb
+api_marvel_n.py
 
 # IPython
 profile_default/
