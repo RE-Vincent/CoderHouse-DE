@@ -7,7 +7,8 @@ import os
 import json
 import numpy as np
 
-load_dotenv()
+dotenv_path = os.path.join(os.path.dirname(__file__), '..', '.env')
+load_dotenv(dotenv_path)
 
 # Credenciales de autenticación
 USERNAME = os.getenv("username_ch")
