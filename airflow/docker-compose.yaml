@@ -18,6 +18,14 @@ x-airflow-common:
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKEND: 'airflow.api.auth.backend.basic_auth'
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
+    public_key: '${public_key}'
+    private_key: '${private_key}'
+    api_key: '${api_key}'
+    host: '${host}'
+    database: '${database}'
+    port: '${port}'
+    username_ch: '${username_ch}'
+    password: '${password}'
 
   volumes:
     - ./dags:/opt/airflow/dags
