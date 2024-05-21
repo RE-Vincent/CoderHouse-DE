@@ -25,16 +25,26 @@ task_1 = BashOperator(
     dag=ETL_aws
 )
 
+def transformar_data(**kwargs):
+    data = get_data('etf')
+    kwargs['ti'].xcom_push(key='data', value=data)
+    return data
+
 task_2 = PythonOperator(
     task_id='transformar_data',
-    python_callable=get_data,
-    op_args = ['etf'],
+    python_callable=transformar_data,
+    provide_context=True,
     dag=ETL_aws
 )
 
+def conexion_redshift(**kwargs):
+    data = kwargs['ti'].xcom_pull(task_ids='transformar_data', key='data')
+    api_to_aws(data)
+
 task_3 = PythonOperator(
     task_id='conexion_redshift',
-    python_callable=api_to_aws,
+    python_callable=conexion_redshift,
+    provide_context=True,
     dag=ETL_aws
 )
 
