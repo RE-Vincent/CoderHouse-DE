@@ -2,13 +2,8 @@ import requests
 from psycopg2 import connect, Error
 from psycopg2.extras import execute_batch
 from datetime import datetime
-from dotenv import load_dotenv
 import os
-import json
 import numpy as np
-
-dotenv_path = os.path.join(os.path.dirname(__file__), '..', '.env')
-load_dotenv(dotenv_path)
 
 # Credenciales de autenticación
 USERNAME = os.getenv("username_ch")
@@ -17,6 +12,7 @@ HOST = os.getenv("host")
 DATABASE = os.getenv("database")
 PORT = os.getenv("port")
 API_KEY = os.getenv("api_key")
+
 
 # Varibale de tiempo
 today = datetime.now()
@@ -115,6 +111,6 @@ def api_to_aws(data):
             conn.close()
             print("Conexión cerrada.")
 
-if __name__ == '__main__':
-    data = get_data('etf')
-    api_to_aws(data)
+# if __name__ == '__main__':
+#     data = get_data('etf')
+#     api_to_aws(data)

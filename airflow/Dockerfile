@@ -1,6 +1,6 @@
 # First-time build can take upto 10 mins.
 
-FROM apache/airflow:2.9.1
+FROM apache/airflow:2.9.1-python3.10
 
 ENV AIRFLOW_HOME=/opt/airflow
 
@@ -10,6 +10,7 @@ RUN apt-get update -qq && apt-get install vim -qqq
 
 USER airflow
 COPY requirements.txt .
+COPY config/airflow.cfg /opt/airflow/config/
 RUN pip install --no-cache-dir -r requirements.txt
 
 USER root

@@ -3,12 +3,17 @@ from airflow import DAG
 from airflow.utils.dates import days_ago
 from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
-from api_to_redshift import *
+from api_to_redshift import get_data, api_to_aws
+import smtplib
 
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
     'start_date': days_ago(1),
+    'email': ['rmforgcp2@gmail.com'],  # Dirección de correo electrónico de destino
+    'email_on_failure': True,  # Envía correo electrónico en caso de fallo
+    'email_on_retry': False,
+    'task_instance_trigger_send_email': True, # Enviar todo el log al correo electronico
     }
 
 ETL_aws =  DAG(

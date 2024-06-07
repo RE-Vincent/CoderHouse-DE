@@ -18,6 +18,7 @@ x-airflow-common:
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKEND: 'airflow.api.auth.backend.basic_auth'
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
+    AIRFLOW_CONFIG: '/opt/airflow/config/airflow.cfg'
     public_key: '${public_key}'
     private_key: '${private_key}'
     api_key: '${api_key}'
@@ -26,10 +27,14 @@ x-airflow-common:
     port: '${port}'
     username_ch: '${username_ch}'
     password: '${password}'
+    smtp_password: '${smtp_password}'
+    smtp_user: '${smtp_user}'
+
 
   volumes:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
+    - ./config:/opt/airflow/config
     - ./plugins:/opt/airflow/plugins
 
   user: "${AIRFLOW_UID:-50000}:0"
