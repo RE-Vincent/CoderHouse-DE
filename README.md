@@ -29,16 +29,19 @@ A continuación se presenta la arquitectura del projecto.
 terraform init
 terraform plan
 terraform apply
+```
   
 3. Revisar si se instaló docker y docker compose, de no ser así instalarlo con la siguiente línea.  
 ```bash 
 ./initscript_chef.sh
+```
   
 4. Ahora nos ubicamos en la carpeta airflow.  
 - Creamos un archivo .env con las variables necesarias.  
 - Para obtener la variable AIRFLOW_UID, ejecutamos:  
 ```bash 
 echo $UID
+```
   
 5. Nuestro pipeline consta de tres tareas, si cualquier tarea falla nos enviará una notificación al correo.  
 ![pipeline](https://github.com/RE-Vincent/CoderHouse-DE/blob/main/images/pipeline_etf.png)
